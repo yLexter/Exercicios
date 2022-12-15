@@ -58,7 +58,8 @@ char opcoesOrdenacao[8][50] = {
     "Nota",
     "Classificação",
     "Quantidade",
-    "Nenhuma"};
+    "Nenhuma"
+  };
 
 // Array que armazena as funções para ordenação de filmes
 // *A Posição de cada função deve estar de acordo com as opçoes de ordenação
@@ -68,13 +69,11 @@ funcaoOrdenarFilme funcoesFilme[7] = {
     ordenarFilmesPorDuracao,
     ordenarFilmesPorGenero,
     ordenarFilmesPorNota,
-<<<<<<< HEAD
     ordenarFilmesPorClassificacao,
-    ordenarFilmesPorQuantidade};
-=======
-    ordenarFilmesPorClassificacao
+    ordenarFilmesPorClassificacao,
+    ordenarFilmesPorQuantidade
 };
->>>>>>> 94be30762da4c3f759c608531b52494af959d113
+
 
 // Função que ordena a partir de uma opção selecionada usuário
 void ordenarFilmes(StructFilmes *filmes, int opcao)
@@ -509,5 +508,6 @@ void devolverFilmeEstoque(FilmeAlugado filme)
   if (filmeEscolhido == NULL)
     return;
 
+  // Soma mais na quantidade de filmes no arquivo
   modificarQuantidadeFilme(filmeEscolhido->id, filmeEscolhido->quantidade + 1);
 }
