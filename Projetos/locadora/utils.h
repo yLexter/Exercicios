@@ -195,16 +195,20 @@ void cabecalho()
 void limparBuffer()
 {
   char c;
-  while ((c = getchar()) != '\n' && c != EOF)
-  {
-  }
+  while ((c = getchar()) != '\n' && c != EOF) {}
 }
 
 // Limpa a tela
-void limparTela() { system("clear"); }
+void limparTela()
+{ 
+  system("clear"); 
+}
 
 // Centraliza o texto na tela
-void textoCentralizado(char *nome) { printf("                %s\n\n", nome); }
+void textoCentralizado(char *nome) 
+{ 
+  printf("                %s\n\n", nome); 
+}
 
 // Pula uma quantidade de linha
 void quebraLinha(int quantidade)
@@ -226,8 +230,7 @@ void toLowerCase(char *palavra)
 // Pega o diretório do cliente
 void getDiretorioCliente(char *var, char *id, bool extensao)
 {
-  snprintf(var, tamanhoLinha, "%s/%s%s", pastaClientes, id,
-           extensao ? ".txt" : "");
+  snprintf(var, tamanhoLinha, "%s/%s%s", pastaClientes, id, extensao ? ".txt" : "");
 }
 
 // Mensagem que vai no meio do cabeçalho
@@ -300,8 +303,7 @@ void deletarLinhaArquivo(char *diretorio, char *idLinha)
   if (strstr(diretorio, "/"))
   {
     char **infoDiretorio = strsplit(diretorio, "/");
-    snprintf(diretorioNovoArquivo, tamanhoLinha, "%s/%s", infoDiretorio[0],
-             nomeArquivoTemporario);
+    snprintf(diretorioNovoArquivo, tamanhoLinha, "%s/%s", infoDiretorio[0], nomeArquivoTemporario);
   }
   else
   {
@@ -483,19 +485,16 @@ StructFA getFilmesAlugados()
     {
       char **dadosFilmes = strsplit(linha, charDivisor);
 
+      // Salva os dados na struct filme
       snprintf(filmeAlugado.idFilme, tamanhoIdFilme, "%s", dadosFilmes[FA_id]);
-      snprintf(filmeAlugado.titulo, tamanhoTituloFilme, "%s",
-               dadosFilmes[FA_titulo]);
-      snprintf(filmeAlugado.autor, tamanhoNomeCliente, "%s",
-               dadosFilmes[FA_autor]);
-      snprintf(filmeAlugado.idAutor, tamanhoIdCliente, "%s",
-               dadosFilmes[FA_idAutor]);
+      snprintf(filmeAlugado.titulo, tamanhoTituloFilme, "%s", dadosFilmes[FA_titulo]);
+      snprintf(filmeAlugado.autor, tamanhoNomeCliente, "%s", dadosFilmes[FA_autor]);
+      snprintf(filmeAlugado.idAutor, tamanhoIdCliente, "%s", dadosFilmes[FA_idAutor]);
 
       // salva o filme alugado no array
       Filmes.filmes[Filmes.total++] = filmeAlugado;
       // realoca memoria para o total de filmes alugados + 1
-      Filmes.filmes = (FilmeAlugado *)realloc(
-          Filmes.filmes, sizeof(FilmeAlugado) * (Filmes.total + 1));
+      Filmes.filmes = (FilmeAlugado *)realloc(Filmes.filmes, sizeof(FilmeAlugado) * (Filmes.total + 1));
     }
 
     fclose(arquivoCliente);
